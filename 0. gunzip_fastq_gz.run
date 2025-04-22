@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#SBATCH -p short 		# partition name
+#SBATCH -t 0-6:00 		# time limit
+#SBATCH -c 6 		# number of cores
+#SBATCH --mem 8G   # requested memory
+#SBATCH --job-name rnaseq_unzip_rawdata 		# Job name
+#SBATCH -o %j.out			# File to which standard output will be written
+#SBATCH -e %j.err 		# File to which standard error will be written
+
+## Change directories to where the fastq files are located
+cd ~/RNAseq/rawdata/00_fastq
+
+## unzip fastq.gz files
+gunzip *.fastq.gz
